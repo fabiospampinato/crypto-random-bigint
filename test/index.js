@@ -12,7 +12,7 @@ describe ( 'Crypto Random BigInt', it => {
 
     // This basically checks that the distribution of each bit is indeed random
 
-    for ( const length of [1, 2, 3, 4, 8, 16, 24, 32, 48, 64, 128, 160, 192, 256, 512, 1024] ) {
+    for ( const length of [1, 2, 3, 4, 8, 16, 24, 32, 48, 64, 128, 160, 192, 224, 256, 512, 1024] ) {
 
       const buckets = [];
 

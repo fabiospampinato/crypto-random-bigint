@@ -26,6 +26,8 @@ const abstract = ( getRandomNumbers: ( buffer: Uint8Array | Uint16Array | Uint32
 
     if ( bits === 192 ) return ( generate ( 128 ) << 64n ) | generate ( 64 );
 
+    if ( bits === 224 ) return ( generate ( 160 ) << 64n ) | generate ( 64 );
+
     if ( bits === 256 ) return ( generate ( 128 ) << 128n ) | generate ( 128 );
 
     if ( bits === 512 ) return ( generate ( 256 ) << 256n ) | generate ( 256 );

@@ -68,6 +68,13 @@ benchmark ({
 });
 
 benchmark ({
+  name: 'random:224',
+  fn: () => {
+    random ( 224 );
+  }
+});
+
+benchmark ({
   name: 'random:256',
   fn: () => {
     random ( 256 );
