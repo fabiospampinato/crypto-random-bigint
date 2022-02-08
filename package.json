@@ -1,7 +1,7 @@
 {
   "name": "crypto-random-bigint",
   "description": "Generate a cryptographically-random BigInt with the given number of bits of entropy.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/node.js",
   "types": "dist/node.d.ts",
   "exports": {
