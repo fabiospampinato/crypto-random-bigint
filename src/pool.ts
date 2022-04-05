@@ -1,4 +1,8 @@
 
+/* IMPORT */
+
+import webcrypto from 'tiny-webcrypto';
+
 /* MAIN */
 
 //TODO: Maybe publish this as a standalone module for getting a 8/16/32/64 bit random number
@@ -7,7 +11,6 @@ class Pool {
 
   /* VARIABLES */
 
-  private getRandomValues: ( buffer: Uint8Array | Uint16Array | Uint32Array | BigUint64Array ) => void;
   private buffer: Uint8Array | Uint16Array | Uint32Array | BigUint64Array;
   private cursor: number;
 
@@ -16,9 +19,8 @@ class Pool {
 
   /* CONSTRUCTOR */
 
-  constructor ( Buffer: Uint8ArrayConstructor | Uint16ArrayConstructor | Uint32ArrayConstructor | BigUint64ArrayConstructor, length: number, getRandomValues: ( buffer: Uint8Array | Uint16Array | Uint32Array | BigUint64Array ) => void ) {
+  constructor ( Buffer: Uint8ArrayConstructor | Uint16ArrayConstructor | Uint32ArrayConstructor | BigUint64ArrayConstructor, length: number ) {
 
-    this.getRandomValues = getRandomValues;
     this.buffer = new Buffer ( length );
     this.cursor = Infinity;
 
@@ -45,7 +47,7 @@ class Pool {
 
   refresh = (): void => {
 
-    this.getRandomValues ( this.buffer );
+    webcrypto.getRandomValues ( this.buffer );
 
     this.cursor = 0;
 

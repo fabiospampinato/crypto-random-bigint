@@ -1,8 +1,8 @@
 
 /* IMPORT */
 
-const {describe} = require ( 'fava' );
-const {default: random} = require ( '../dist/node' );
+import {describe} from 'fava';
+import random from '../dist/index.js';
 
 /* MAIN */
 
