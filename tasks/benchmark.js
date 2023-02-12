@@ -7,8 +7,7 @@ import random from '../dist/index.js';
 /* MAIN */
 
 benchmark.defaultOptions = Object.assign ( benchmark.defaultOptions, {
-  iterations: 100000,
-  log: 'compact'
+  iterations: 100_000
 });
 
 benchmark ({
