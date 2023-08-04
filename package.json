@@ -2,7 +2,7 @@
   "name": "crypto-random-bigint",
   "repository": "github:fabiospampinato/crypto-random-bigint",
   "description": "Generate a cryptographically-random BigInt with the given number of bits of entropy.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
