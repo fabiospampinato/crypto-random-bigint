@@ -24,7 +24,7 @@
     "number"
   ],
   "dependencies": {
-    "tiny-webcrypto": "^1.0.1"
+    "uint-rng": "^1.1.0"
   },
   "devDependencies": {
     "benchloop": "^2.1.0",

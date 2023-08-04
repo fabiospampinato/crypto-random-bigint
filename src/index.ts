@@ -1,20 +1,23 @@
 
 /* IMPORT */
 
-import Pool from './pool';
+import RNG from 'uint-rng';
 
 /* HELPERS */
 
-const POOL_8 = new Pool ( Uint8Array, 25 );
-const POOL_16 = new Pool ( Uint16Array, 25 );
-const POOL_32 = new Pool ( Uint32Array, 25 );
-const POOL_64 = new Pool ( BigUint64Array, 50 );
+const get8 = Object.assign ( () => BigInt ( RNG.get8 () ), { BITS: 8 } );
+const get16 = Object.assign ( () => BigInt ( RNG.get16 () ), { BITS: 16 } );
+const get32 = Object.assign ( () => BigInt ( RNG.get32 () ), { BITS: 32 } );
+const get64 = Object.assign ( () => RNG.get64 (), { BITS: 64 } );
 
 /* MAIN */
 
 const random = ( bits: number ): bigint => {
 
-  const {get, BITS} = ( bits <= 8 ? POOL_8 : ( bits <= 16 ? POOL_16 : ( bits <= 32 ? POOL_32 : POOL_64 ) ) );
+  const get = ( bits <= 8 ? get8 : ( bits <= 16 ? get16 : ( bits <= 32 ? get32 : get64 ) ) );
+  const BITS = get.BITS;
+
+  /* SPECIAL CASES */
 
   if ( bits === BITS ) return get ();
 
@@ -33,6 +36,8 @@ const random = ( bits: number ): bigint => {
   if ( bits === 512 ) return ( random ( 256 ) << 256n ) | random ( 256 );
 
   if ( bits === 1024 ) return ( random ( 512 ) << 512n ) | random ( 512 );
+
+  /* GENERAL CASE */
 
   let index = 0;
   let result = 0n;
