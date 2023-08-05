@@ -33,9 +33,13 @@ const random = ( bits: number ): bigint => {
 
   if ( bits === 256 ) return ( random ( 128 ) << 128n ) | random ( 128 );
 
+  if ( bits === 384 ) return ( random ( 256 ) << 128n ) | random ( 128 );
+
   if ( bits === 512 ) return ( random ( 256 ) << 256n ) | random ( 256 );
 
   if ( bits === 1024 ) return ( random ( 512 ) << 512n ) | random ( 512 );
+
+  if ( bits === 2048 ) return ( random ( 1024 ) << 1024n ) | random ( 1024 );
 
   /* GENERAL CASE */
 

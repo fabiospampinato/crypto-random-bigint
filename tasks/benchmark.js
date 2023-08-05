@@ -81,6 +81,13 @@ benchmark ({
 });
 
 benchmark ({
+  name: 'random:384',
+  fn: () => {
+    random ( 384 );
+  }
+});
+
+benchmark ({
   name: 'random:512',
   fn: () => {
     random ( 512 );
@@ -91,6 +98,13 @@ benchmark ({
   name: 'random:1024',
   fn: () => {
     random ( 1024 );
+  }
+});
+
+benchmark ({
+  name: 'random:2048',
+  fn: () => {
+    random ( 2048 );
   }
 });
 
