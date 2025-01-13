@@ -3,7 +3,7 @@
   "repository": "github:fabiospampinato/crypto-random-bigint",
   "description": "Generate a cryptographically-random BigInt with the given number of bits of entropy.",
   "license": "MIT",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
