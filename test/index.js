@@ -29,7 +29,7 @@ describe ( 'Crypto Random BigInt', it => {
 
       t.is ( buckets.length, length );
 
-      for ( let i = 0; i < 25000; i++ ) {
+      for ( let i = 0; i < 25_000; i++ ) {
 
         const bits = random ( length ).toString ( 2 ).padStart ( length, '0' ).split ( '' );
 

@@ -7,13 +7,15 @@ It's pretty darn fast, tiny, and it works everywhere. It's like a purer version 
 ## Install
 
 ```sh
-npm install --save crypto-random-bigint
+npm install crypto-random-bigint
 ```
 
 ## Usage
 
 ```ts
 import random from 'crypto-random-bigint';
+
+// Let's get some random BigInts
 
 random ( 8 ); // => 132n
 random ( 16 ); // => 54279n
