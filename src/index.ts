@@ -5,6 +5,7 @@ import RNG from 'uint-rng';
 
 /* HELPERS */
 
+const get1 = Object.assign ( () => BigInt ( RNG.get1 () ), { BITS: 1 } );
 const get8 = Object.assign ( () => BigInt ( RNG.get8 () ), { BITS: 8 } );
 const get16 = Object.assign ( () => BigInt ( RNG.get16 () ), { BITS: 16 } );
 const get32 = Object.assign ( () => BigInt ( RNG.get32 () ), { BITS: 32 } );
@@ -14,14 +15,12 @@ const get64 = Object.assign ( () => RNG.get64 (), { BITS: 64 } );
 
 const random = ( bits: number ): bigint => {
 
-  const get = ( bits <= 8 ? get8 : ( bits <= 16 ? get16 : ( bits <= 32 ? get32 : get64 ) ) );
+  const get = ( bits <= 1 ? get1 : ( bits <= 8 ? get8 : ( bits <= 16 ? get16 : ( bits <= 32 ? get32 : get64 ) ) ) );
   const BITS = get.BITS;
 
   /* SPECIAL CASES */
 
   if ( bits === BITS ) return get ();
-
-  if ( bits === 1 ) return get () & 1n;
 
   if ( bits === 128 ) return ( get () << 64n ) | get ();
 
